@@ -3,3 +3,6 @@
 # 需要手动改一下Write.py里头的用来记录字词的文件的路径（最好记录文件保持为html格式）
 # 需要运行gui.py
 ## supported by https://wyw.hwxnet.com/
+
+
+几次尝试用pyinstaller想把它搞成.exe但路径问题迟迟未解决
