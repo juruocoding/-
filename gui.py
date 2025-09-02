@@ -23,18 +23,30 @@ def create_gui():
     label.pack(pady=10)
     
     # 添加输入框
-    entry = tk.Entry(window, width=40, font=entry_font)
-    entry.pack(pady=20)
+    chcn_entry = tk.Entry(window, width=40, font=entry_font)
+    chcn_entry.pack(pady=10)
+
+    user_text=""
+    text_utf8=""
+    cnch=""
     
-    # 按钮点击事件处理
-    def on_button1_click():
-        user_text = entry.get()
-       
+    def Init():
+        global user_text
+        global text_utf8
+        global cnch
+        global route
+        user_text = chcn_entry.get()
+#        route =route_entry.get()
         # 将文本编码为UTF-8字节串
         text_utf8=user_text.encode("utf-8")
         cnch=str(user_text)  #Chinese_character
         text_utf8=repr(text_utf8)
         # 传递处理后的字符串给搜索函数
+        
+    # 按钮点击事件处理
+    def on_button1_click():
+        Init()
+        global user_text,cnch,text_utf8
         sgew.Function(cnch, text_utf8,1)
         if user_text:
             pass
@@ -48,14 +60,9 @@ def create_gui():
 
 
     def on_button2_click():
-        user_text = entry.get()
-       
-        # 将文本编码为UTF-8字节串
-        text_utf8=user_text.encode("utf-8")
-        cnch=str(user_text)  #Chinese_character
-        text_utf8=repr(text_utf8)
-        # 传递处理后的字符串给搜索函数
-        sgew.Function(cnch, text_utf8,2)
+        Init()
+        global user_text,cnch,text_utf8
+        sgew.Function(cnch,text_utf8,2)
         if user_text:
             pass
         else:
@@ -67,13 +74,8 @@ def create_gui():
 
 
     def on_button3_click():
-        user_text = entry.get()
-       
-        # 将文本编码为UTF-8字节串
-        text_utf8=user_text.encode("utf-8")
-        cnch=str(user_text)  #Chinese_character
-        text_utf8=repr(text_utf8)
-        # 传递处理后的字符串给搜索函数
+        Init()
+        global user_text,cnch,text_utf8
         sgew.Function(cnch, text_utf8,3)
         if user_text:
             pass
